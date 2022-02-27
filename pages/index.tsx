@@ -10,7 +10,7 @@ import validGuessList from '../lib/words/validGuessList'
 import { letterStatus } from '../lib/settings'
 import colours from '../lib/colours'
 
-const wordList = [...validAnswerList, ...validGuessList]
+const completeValidGuessList = [...validAnswerList, ...validGuessList]
 
 interface KeyBoardLetterStatusProps {
   [key: string]: string
@@ -21,7 +21,7 @@ const getRandomWord = function (wordList: string[]) {
   return wordList[randomIndex].split('')
 }
 
-const firstSecretWord = getRandomWord(wordList)
+const firstSecretWord = getRandomWord(validAnswerList)
 
 const Home: NextPage = () => {
   const [secretWord, setSecretWord] = useState<string[]>(firstSecretWord)
@@ -45,7 +45,7 @@ const Home: NextPage = () => {
     setPreviousGuesses([])
     setCurrentWordGuess([])
     setKeyBoardLetterStatus({})
-    const newSecretWord = getRandomWord(wordList)
+    const newSecretWord = getRandomWord(validAnswerList)
     setSecretWord(newSecretWord)
     console.log('secretWord', newSecretWord)
     setGameOver(false)
@@ -71,7 +71,7 @@ const Home: NextPage = () => {
     if (letter === 'Enter') {
       if (currentWordGuess.length < wordLength) {
         notLongEnough()
-      } else if (!wordList.includes(currentWordGuess.join(''))) {
+      } else if (!completeValidGuessList.includes(currentWordGuess.join(''))) {
         notAValidWord()
       } else {
         // devtest && isAPossibleWord
