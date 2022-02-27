@@ -1,4 +1,4 @@
-Oa = [
+const validGuesses = [
   'aahed',
   'aalii',
   'aargh',
@@ -10638,3 +10638,5 @@ Oa = [
   'zymes',
   'zymic',
 ]
+
+export default validGuesses

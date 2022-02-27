@@ -5,9 +5,12 @@ import KeyboardDisplay from '../components/KeyboardDisplay'
 import SiteLayout from '../components/layout/SiteLayout'
 import SingleLetterInput from '../components/SingleLetterInput'
 import WordRow from '../components/WordRow'
-import wordList from '../lib/words/wordList'
+import validAnswerList from '../lib/words/validAnswerList'
+import validGuessList from '../lib/words/validGuessList'
 import { letterStatus } from '../lib/settings'
 import colours from '../lib/colours'
+
+const wordList = [...validAnswerList, ...validGuessList]
 
 interface KeyBoardLetterStatusProps {
   [key: string]: string
@@ -82,49 +85,53 @@ const Home: NextPage = () => {
   }
 
   const toast = useToast()
-  const baseToastSettings = {
-    position: 'top',
-    duration: 3000,
-    isClosable: true,
-  }
+  // const baseToastSettings = {
+  //   position: 'top',
+  //   duration: 3000,
+  //   isClosable: true,
+  // }
 
   const winGame = () => {
     setGameOver(true)
 
-    const toastSettings = {
-      ...baseToastSettings,
+    toast({
       title: 'You win!',
       status: 'success',
-    }
-    toast(toastSettings)
+      position: 'top',
+      duration: 3000,
+      isClosable: true,
+    })
   }
 
   const loseGame = () => {
     setGameOver(true)
-    const toastSettings = {
-      ...baseToastSettings,
+    toast({
+      position: 'top',
+      duration: 3000,
+      isClosable: true,
       title: 'You lose :(',
       status: 'error',
-    }
-    toast(toastSettings)
+    })
   }
 
   const notAValidWord = () => {
-    const toastSettings = {
-      ...baseToastSettings,
+    toast({
+      position: 'top',
+      duration: 3000,
+      isClosable: true,
       title: 'Not a valid word',
       status: 'info',
-    }
-    toast(toastSettings)
+    })
   }
 
   const notLongEnough = () => {
-    const toastSettings = {
-      ...baseToastSettings,
+    toast({
+      position: 'top',
+      duration: 3000,
+      isClosable: true,
       title: 'Not enough letters',
       status: 'info',
-    }
-    toast(toastSettings)
+    })
   }
 
   useEffect(() => {

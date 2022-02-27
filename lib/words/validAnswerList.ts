@@ -1,4 +1,4 @@
-const wordList = [
+const validAnswerList = [
   'cigar',
   'rebut',
   'sissy',
@@ -2310,4 +2310,4 @@ const wordList = [
   'shave',
 ]
 
-export default wordList
+export default validAnswerList
