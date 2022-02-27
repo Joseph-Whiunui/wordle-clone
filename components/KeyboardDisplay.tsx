@@ -137,6 +137,7 @@ const KeyboardDisplay = ({
       <HStack spacing={1}>
         <Button
           bg="grey"
+          color="white"
           height="12"
           width="12"
           fontSize="xs"
@@ -192,6 +193,7 @@ const KeyboardDisplay = ({
           bg="grey"
           height="12"
           width="12"
+          color="white"
           onClick={() => {
             handleKeyboardInput('Backspace')
           }}
