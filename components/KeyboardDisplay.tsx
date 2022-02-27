@@ -138,7 +138,7 @@ const KeyboardDisplay = ({
         <Button
           bg="grey"
           height="12"
-          width="14"
+          width="12"
           fontSize="xs"
           onClick={() => {
             handleKeyboardInput('Enter')
@@ -191,7 +191,7 @@ const KeyboardDisplay = ({
         <Button
           bg="grey"
           height="12"
-          width="14"
+          width="12"
           onClick={() => {
             handleKeyboardInput('Backspace')
           }}
