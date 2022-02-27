@@ -30,6 +30,8 @@ const KeyboardLetter = ({
     <Button
       bg={bg}
       height="12"
+      width="8"
+      minWidth="0"
       color="white"
       className="keyboard-letter"
       onClick={() => {
