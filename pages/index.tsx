@@ -39,15 +39,12 @@ const Home: NextPage = () => {
     e.currentTarget.blur()
   }
   const resetGame = (e: any) => {
-    console.log('resetGame')
-
     setCurrentGuessNumber(0)
     setPreviousGuesses([])
     setCurrentWordGuess([])
     setKeyBoardLetterStatus({})
     const newSecretWord = getRandomWord(validAnswerList)
     setSecretWord(newSecretWord)
-    console.log('secretWord', newSecretWord)
     setGameOver(false)
     e.currentTarget.blur()
   }
@@ -56,7 +53,6 @@ const Home: NextPage = () => {
     if (gameOver) {
       return
     }
-    console.log('handlekeyboard input is a function')
 
     const isAlpha = /^[a-zA-Z]{1}$/.test(letter) // :letter.length === 1 &&
 
@@ -65,7 +61,6 @@ const Home: NextPage = () => {
       setCurrentWordGuess([...currentWordGuess, letter])
     }
     if (letter === 'Backspace') {
-      console.log('backspace is true', letter)
       setCurrentWordGuess([...currentWordGuess.slice(0, -1)])
     }
     if (letter === 'Enter') {
@@ -80,8 +75,6 @@ const Home: NextPage = () => {
         setCurrentGuessNumber(currentGuessNumber + 1)
       }
     }
-    console.log('previousGuesses', previousGuesses)
-    console.log('currentWordGuess', currentWordGuess)
   }
 
   const toast = useToast()
@@ -167,8 +160,6 @@ const Home: NextPage = () => {
         </Center>
         <Box>
           {[...Array(maxGuessCount).keys()].map((guessNumber) => {
-            console.log('previousGuesses.length', previousGuesses.length)
-
             let isPreviousGuess = true
             let rowWord: string[] = []
             if (previousGuesses.length > guessNumber) {
@@ -248,7 +239,6 @@ const Home: NextPage = () => {
               wordLength,
               isPreviousGuess
             )
-            console.log('letterStyles', letterStyles)
 
             return (
               <WordRow key={guessNumber}>

@@ -13,7 +13,6 @@ const KeyboardDisplay = ({
   keyBoardLetterStatus,
   handleKeyboardInput,
 }: KeyboardDisplayProps) => {
-  console.log('handleKeyboardInput', typeof handleKeyboardInput)
   return (
     <VStack spacing={1} p="2">
       <HStack spacing={1}>
